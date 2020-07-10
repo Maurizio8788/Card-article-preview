@@ -1,0 +1,43 @@
+/* Variables */
+
+$VeryDarkGrayishBlue:hsl(217, 19%, 35%);
+$DesaturatedDarkBlue: hsl(214, 17%, 51%);
+$GrayishBlue: hsl(212, 23%, 69%);
+
+
+
+/* MIXINs */
+
+@mixin flex( $ai:unset, $jc:unset, $fd:row ) {
+    display: flex;
+    justify-content: $jc;
+    align-items: $ai;
+    flex-direction: $fd;
+} 
+
+
+/*  Keyframe */
+
+@keyframes show-social{
+
+    from{  opacity: 0; top: 0;}
+    to{ opacity: 1;top: -112px;}
+}
+
+@keyframes hide-social{
+
+    from{  opacity: 1; top: -112px;}
+    to{ opacity: 0;top: 0;}
+}
+
+@keyframes show-mobile{
+
+    from{  opacity: 0; top: 0;}
+    to{ opacity: 1;top: -50px;}
+}
+
+@keyframes hide-mobile{
+
+    from{  opacity: 1; top: -50px;}
+    to{ opacity: 0;top: 0;}
+}

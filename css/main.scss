@@ -1,0 +1,183 @@
+
+@import 'config';
+
+
+body{
+    padding: 0;
+    margin: 0;
+    background-color: hsl(210, 46%, 95%);
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    overflow: hidden;
+    font-size: 13px;
+}
+
+h3,h4{
+    font-weight: bold;
+}
+
+.container{
+    @include flex( center, center );
+    max-width: 1080px;
+    height: 100vh;
+    width: 100%;
+    margin: 0 auto;
+
+.card{
+    height: 230px;
+    width: 700px;
+    background-color: #fff;
+    border-radius: 10px;
+    @include flex( center, space-between );
+
+    .card__container-img{
+        width: 35%;
+        height: 100%;
+        overflow: hidden;
+        border-radius: 10px 0 0 10px;
+
+        img{ 
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .card__text-container{
+        width: 65%;
+        height: 100%;
+        padding: 2.2em 3em;
+        @include flex( $jc:space-around, $fd:column );
+
+        h3{ font-size: 1rem; font-weight: 700; color: $VeryDarkGrayishBlue; margin-top: 2.7em;}
+        p{ margin-top:1em;line-height: 21px;font-weight: 500;color: $DesaturatedDarkBlue;padding-right: 2em;}
+
+        .card__footer{
+            margin-top: 1.5em;
+            @include flex( center, space-between );
+            .card__footer-user{
+                width: 47%;
+                height: 41px;
+                @include flex( $ai:center, $jc:space-between );
+
+                .card__footer-user-img{
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 100%;
+                    overflow: hidden;
+
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+
+                }
+
+                .card__footer-text-container{
+                    h4{
+                        font-size: .9rem;
+                        font-weight: bold;
+                        color: $VeryDarkGrayishBlue;
+                    }
+
+                    p{ font-size: .8rem; margin-top: .2em;opacity: 0.4;font-weight: 700;}
+                }
+            }
+
+            .card__footer-social-share-icon{
+                width: 27px;
+                height: 27px;
+                border-radius: 100%;
+                background:  hsl(210, 46%, 95%);
+                @include flex( center, center);
+                cursor: pointer;
+                transition: all .6s ease;
+                
+                i{
+                    font-size: 18px;
+                    color: $DesaturatedDarkBlue;
+
+                    &.icon-style{
+                        color: #fff!important;  
+                    }
+                }
+
+                &.box-style{
+                    background: $VeryDarkGrayishBlue!important;  
+                }
+               
+            }
+                
+        }
+
+        .social{
+            width: 300px;
+            height: 50px;
+            padding: 13px 18px;
+            border-radius: 10px;
+            background: $VeryDarkGrayishBlue;
+            position: relative;
+            top: 0;
+            right: -57%;
+            opacity: 0;
+            animation: hide-social .7s forwards ease-out;
+            
+
+            ul{ 
+                list-style-type:none;
+                @include flex( center, space-around);
+
+                li{
+                    font-size: 13px;
+                    color: $GrayishBlue;
+                    letter-spacing: .3em;
+                    i{
+                        color: #fff;
+                        font-size: 18px;
+                    }
+                }
+            }
+
+            &:after{
+                position: absolute;
+                content: " ";
+                display: block;
+                width: 0;
+                height: 0;
+                border-left: 20px solid transparent;
+                border-right: 20px solid transparent;
+                border-top: 25px solid $VeryDarkGrayishBlue;
+                bottom: -14px;
+                left: 43%;
+            }
+
+            &.animate{
+                animation: show-social .7s forwards ease;
+            }
+        }
+
+
+
+    }
+    
+}
+
+}
+
+@media (max-width:767px) {
+    @import 'mobile';
+}
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+    *:before, *:after{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+}
